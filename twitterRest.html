@@ -5,7 +5,42 @@
     <title>Twitter Rest</title>
 </head>
 <body>
-<form method="get">
+<form action="http://127.0.0.1:8000/get_all_tweets" method="get">
+    <fieldset>
+        <legend>Get all Tweets</legend>
+        <button type="submit" value="all_tweets"><img src="Twitter-icon.png"> </button>
+    </fieldset>
+</form>
+<!-- get detailed tweets -->
+<form action="http://127.0.0.1:8000/get_detailed_tweets" method="get">
+    <fieldset>
+        <legend>Get Detailed Tweets</legend>
+        Tweets ID <input type="text" name="tweets_id"><br>
+        <input type="submit" value="submit">
+    </fieldset>
+</form>
+<form action="http://127.0.0.1:8000/get_detailed_user" method="get">
+    <fieldset>
+        <legend>Get Detailed User Information</legend>
+        Screen Name <input type="text" name="screen_name"><br>
+        <input type="submit" value="submit">
+    </fieldset>
+</form>
+<form action="http://127.0.0.1:8000/get_all_known_users" method="get">
+    <fieldset>
+        <legend>Get All Known Users</legend>
+        <button type="submit" value="all_known_users">Get All Known Users</button>
+    </fieldset>
+</form>
+<form action="http://127.0.0.1:8000/get_external_links">
+    
+</form>
+<!--
+<form action="http://127.0.0.1:8000/get_all_tweets" method="get">
+    <input type="button" value="get all tweets" name="all_tweets">
+</form>
+
+
     <button id="tweets" name="all_tweets" value="get_all_tweets">Get ALL Tweets</button>
     <br>
     <button id="known_users" name="all_users" value="get_all_users">Get all known users</button>
@@ -13,8 +48,8 @@
     <button id="external_links" name="external_links" value="get_all_links">Get a list of external links </button>
     <br>
     <button id="profile" name="detailed_profile" value="get_all_profile">Get detailed profile</button>
-</form>
 
+-->
 <div id="result">
 
 
