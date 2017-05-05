@@ -3,8 +3,10 @@
 ## Demonstalation
 the demonstalation is running at
 
- http://ec2-34-210-57-7.us-west-2.compute.amazonaws.com/CS174HW5_Spring17/twitterRest.html 
+http://ec2-34-210-57-7.us-west-2.compute.amazonaws.com/CS174HW5_Spring17/twitterRest.html
 
+## Git Hub Respogitry
+https://github.com/28kayak/CS174HW5_Spring17
 
 ## Tech
 - node.js
