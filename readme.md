@@ -8,6 +8,8 @@ http://ec2-34-210-57-7.us-west-2.compute.amazonaws.com/CS174HW5_Spring17/twitter
 ## Git Hub Respogitry
 https://github.com/28kayak/CS174HW5_Spring17
 
+## Specification / Assignment Sheet
+      see: HW5_description.pdf
 ## Tech
 - node.js
 - AJAX
