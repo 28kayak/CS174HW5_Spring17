@@ -82,8 +82,60 @@ app.get('/get_all_tweets', function (req, res) {
 
 });
 app.get('/get_all_known_users', function (req,res) {
-
+    var result = "";
+    result = form_all_known_users(tweets_data);
+    if(result == "")
+    {
+        result = "Error: Could not retrieve OR not formed html ";
+    }
+    res.end(result);
 });
+function form_all_known_users(tweets_data) {
+    var i = 0;
+
+    var tweets_entities;
+    //well-formed css for formatting HTML table
+    var style = " <style> table, th, td { border: 1px solid black; border-collapse: collapse;}";
+    style +=" th, td { padding: 5px; text-align: left; }";
+    style += "caption{ font-size: 30px; } </style> ";
+    var table = '<table style="width: 100%"> <tr>';
+    table += "<caption>All Known Users</caption>"
+    table += "<th>" + "Tweeter ID" + " </th>";
+    table += "<th>" + "KnownUser Name" + "</th></tr>";
+    console.log(tweets_data[i] === null);
+    //var flag = tweets_data[i] != null;
+
+    while(tweets_data[i] != null)
+    {
+        console.log("i =" + i);
+        tweets_entities = tweets_data[i].entities;
+        console.log(tweets_entities.user_mentions);
+
+        var mentioned = tweets_entities.user_mentions;
+        //console.log(mentioned);
+        var j = 0;
+        while(mentioned[j] != null)
+        {
+
+            console.log("j =" + j);
+            console.log(mentioned[j]);
+            console.log("Name ->" + mentioned[j].name);
+            table += "<tr><th>" + tweets_data[i].id + " </th>";
+            if(mentioned[j].name != null)
+            {
+                table += "<th>" + mentioned[j].name + " </th>";
+            }
+            else
+            {
+                table += "<th>" + " Not Available "+ "</th>"
+            }
+            table += "</tr>";
+            j++;
+        }
+        i++;
+    }
+    return style + table;
+}
 function form_detailed_users(user_info) {
     //counter for loop
     var index = 0;
