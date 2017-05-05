@@ -2,9 +2,9 @@
 
 ## Demonstalation
 the demonstalation is running at
-```sh
-http://ec2-34-210-57-7.us-west-2.compute.amazonaws.com/CS174HW5_Spring17/twitterRest.html
-```
+
+< http://ec2-34-210-57-7.us-west-2.compute.amazonaws.com/CS174HW5_Spring17/twitterRest.html >
+
 
 ## Tech
 - node.js
