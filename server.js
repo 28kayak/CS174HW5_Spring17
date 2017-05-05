@@ -90,6 +90,59 @@ app.get('/get_all_known_users', function (req,res) {
     }
     res.end(result);
 });
+app.get('/get_external_links', function (req,res) {
+
+    console.log(tweets_data[0].text);
+    var content = tweets_data[0].text;
+    //regular expression for URL
+    var expression = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
+    var regex = new RegExp(expression);
+
+    var html_table = form_external_links(regex);
+
+    console.log("Show regex");
+    console.log(regex.exec(content)[0]);
+    console.log(html_table);
+
+
+
+    res.end(html_table);
+
+});
+/*
+@arg1 content that might contain urls
+@return well-formed html table
+ */
+function form_external_links(tweets_data, regex_object) {
+
+
+    var url;
+    var content;
+    var style = " <style> table, th, td { border: 1px solid black; border-collapse: collapse;}";
+    style +=" th, td { padding: 5px; text-align: left; }";
+    style += "caption{ font-size: 30px; } </style> ";
+
+    var table = '<table style="width: 100%"> <tr>';
+    table += "<caption>External Links</caption>"
+    table += "<th>" + "User Name" + " </th>";
+    table += "<th>" + "URL" + "</th></tr>";
+    var i = 0;
+    console.log(tweets_data[i]);
+    while(tweets_data[i] != null)
+    {
+        console.log("in while");
+        content = tweets_data[i].text;
+        url = regex_object.exec(content)[0];
+        table += "<tr><th>" + tweets_data[i].user.name + " </th>";
+        table += "<th>" + url + "</th></tr>";
+
+        i++;
+    }
+    return style + table;
+
+
+
+}
 function form_all_known_users(tweets_data) {
     var i = 0;
 
